@@ -12,6 +12,9 @@ Elle sert d'exemple pour 2 tp dans le cadre de ma formation d'ingénieur
 - **Modifier un Habitant** : Permet de mettre à jour les informations d'un habitant existant.
 - **Supprimer un Habitant** : Permet de retirer un habitant de la liste.
 - **Lister les Habitants** : Affiche tous les habitants enregistrés par ordre alphabétique.
+- **Statistiques** : Fournit des statistiques clés sur les habitants, telles que la moyenne d'âge.
+- **Vérification** : Permet de vérifier et d'afficher une liste des habitants âgés de plus de 100 ans.
+
 
 ## Technologies Utilisées
 
