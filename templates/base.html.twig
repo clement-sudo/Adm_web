@@ -64,6 +64,7 @@
                 <li><a href="{{ path('app_habitant_new') }}">Ajouter un Habitant</a></li>
                 <li><a href="{{ path('statistiques_index') }}">Statistiques</a></li>
                 <li><a href="{{ path('verification_index') }}">Vérification</a></li>
+                <li><a href="{{ path('controller_search_index') }}">Recherche</a></li>
             </ul>
         </nav>
     </header>
@@ -73,10 +74,20 @@
             {% block body %}{% endblock %}
               
         </div>
+        
+        
     </div>
 
     <footer>
         <p>© 2023 Mairie de Saint Denis en Val</p>
     </footer>
+    
 </body>
+{% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
 </html>

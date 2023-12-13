@@ -1,10 +1,18 @@
-import './bootstrap.js';
-/*
- * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
- */
 import './styles/app.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import SearchForm from './react/controllers/SearchForm.jsx';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')
+const root = ReactDOM.createRoot(
+    document.getElementById('SearchForm')
+);
+
+root.render(
+  <React.StrictMode>
+    <SearchForm />
+  </React.StrictMode>
+);
+registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
+
+
+
