@@ -12,14 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class ControllerSearchController extends AbstractController
 {
     #[Route('/search', name: 'controller_search_index')]
-       
     public function index(HabitantRepository $habitantRepository): Response
     {
-    
     return $this->render('controller_search/index.html.twig', [
-        'controller_name' => 'Searchcontroller',
-        
+       'controller_name' => 'ControllerSearchController',
     ]);
-    
 }
 }

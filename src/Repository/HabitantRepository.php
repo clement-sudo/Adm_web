@@ -40,6 +40,7 @@ class HabitantRepository extends ServiceEntityRepository
     public function findHabitantsPlusDeCentAns(): array
     {
         // Obtenir l'EntityManager
+    
         $em = $this->getEntityManager();
 
         // Construire la requête DQL

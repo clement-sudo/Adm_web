@@ -1,6 +1,6 @@
 import './styles/app.css'
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import SearchForm from './react/controllers/SearchForm.jsx';
 
 const root = ReactDOM.createRoot(
@@ -12,7 +12,7 @@ root.render(
     <SearchForm />
   </React.StrictMode>
 );
-registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
+// registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
 
 
 

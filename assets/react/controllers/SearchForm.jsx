@@ -16,6 +16,7 @@ function SearchForm() {
                 throw new Error(`Erreur: ${response.statusText}`);
             }
             const data = await response.json();
+            console.log(data)
             setResults(data);
         } catch (error) {
             console.error("Erreur lors de la récupération des données", error);
