@@ -3,13 +3,34 @@
 {% block title %}Hello ControllerSearchController!{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Rechercher par nom dans la base de donnée</h1>
-    <div id="SearchForm"></div>
-</div>
-
-
-
+    <div class="stat-container">
+        <h1>Rechercher par nom dans la base de donnée</h1>
+        <div class="stat-item" id="SearchForm"></div>
+    </div>
 {% endblock %}
 
-
+{% block stylesheets %}
+<style>
+    .stat-container {
+        width: 60%;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .stat-container h1 {
+        text-align: center;
+        color: #367C39;
+        margin-bottom: 20px;
+    }
+    .stat-item {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .stat-item h2, .stat-item ul {
+        color: #367C39;
+    }
+</style>
+{% endblock %}
