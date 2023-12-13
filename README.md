@@ -4,6 +4,8 @@ Micro-project for polytech
 
 Ce projet est une application web développée avec le framework Symfony. Elle est conçue pour aider à recenser les habitants de Saint Denis en Val, en fournissant une interface utilisateur simple pour ajouter, modifier, supprimer et lister les habitants.
 
+Elle sert d'exemple pour 2 tp dans le cadre de ma formation d'ingénieur
+
 ## Fonctionnalités
 
 - **Ajouter un Habitant** : Permet d'enregistrer un nouvel habitant avec des détails tels que le nom, le prénom, la date de naissance et le genre.
@@ -23,12 +25,12 @@ Ce projet est une application web développée avec le framework Symfony. Elle e
 
 Pour installer et exécuter ce projet, suivez ces étapes :
 
-1. Clonez le dépôt :
-2. Installez les dépendances :
+1. Clonez le dépôt : git clone 
+2. Installez les dépendances : composer install
 3. Configurez votre fichier `.env` pour la base de données.
-4. Créez la base de données :
-5. Effectuez les migrations :
-6. Lancez le serveur de développement :
+4. Créez la base de données : php bin/console doctrine:database:create
+5. Effectuez les migrations : php bin/console doctrine:migrations:migrate
+6. Lancez le serveur de développement : symfony server:start
 
 ## Contribution
 
