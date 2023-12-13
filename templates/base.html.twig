@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Application de Recensement</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #367C39; /* Vert plus foncé */
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #367C39; /* Vert plus foncé */
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .mairie-image {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .mairie-image img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recensement des Habitants de Saint Denis en Val</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_habitant_index') }}">Accueil</a></li>
+                <li><a href="{{ path('app_habitant_new') }}">Ajouter un Habitant</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            {% block body %}{% endblock %}
+              <div class="mairie-image">
+                <img src="https://fr.wikipedia.org/wiki/Saint-Denis-en-Val#/media/Fichier:Saint-Denis-en-Val_mairie_1.jpg" alt="Mairie de Saint-Denis-en-Val">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 Mairie de Saint Denis en Val</p>
+    </footer>
+</body>
+</html>

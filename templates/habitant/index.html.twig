@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Habitant index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Habitants</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de Naissance</th>
+                <th>Genre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for habitant in habitants %}
+            <tr>
+                <td>{{ habitant.id }}</td>
+                <td>{{ habitant.nom }}</td>
+                <td>{{ habitant.prenom }}</td>
+                <td>{{ habitant.dateNaissance ? habitant.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ habitant.genre }}</td>
+                <td>
+                    <a href="{{ path('app_habitant_show', {'id': habitant.id}) }}">Afficher</a>
+                    <a href="{{ path('app_habitant_edit', {'id': habitant.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun habitant trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_habitant_new') }}">Créer un nouvel habitant</a>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    h1 {
+        text-align: center;
+        color: #4CAF50;
+    }
+    .table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+    .table, .table th, .table td {
+        border: 1px solid #ddd;
+    }
+    .table th, .table td {
+        padding: 8px;
+        text-align: left;
+    }
+    .table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    .table tr:nth-child(even) {background-color: #f2f2f2;}
+    .table tr:hover {background-color: #ddd;}
+    a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

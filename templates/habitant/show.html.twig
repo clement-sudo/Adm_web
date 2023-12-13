@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Habitant{% endblock %}
+
+{% block body %}
+    <div class="detail-container">
+        <h1>Détails de l'Habitant</h1>
+
+        <table class="detail-table">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td>{{ habitant.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ habitant.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ habitant.prenom }}</td>
+                </tr>
+                <tr>
+                    <th>Date de Naissance</th>
+                    <td>{{ habitant.dateNaissance ? habitant.dateNaissance|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Genre</th>
+                    <td>{{ habitant.genre }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="actions">
+            <a href="{{ path('app_habitant_index') }}">Retour à la liste</a>
+            <a href="{{ path('app_habitant_edit', {'id': habitant.id}) }}">Modifier</a>
+            {{ include('habitant/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .detail-container {
+        width: 60%;
+        margin: 20px auto;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    .detail-table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .detail-table th, .detail-table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    .detail-table th {
+        background-color: #367C39;
+        color: white;
+        width: 30%;
+    }
+    .actions a {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 8px 15px;
+        background-color: #367C39;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    .actions a:hover {
+        background-color: #2a5b2a;
+    }
+</style>
+{% endblock %}

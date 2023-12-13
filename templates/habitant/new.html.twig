@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel Habitant{% endblock %}
+
+{% block body %}
+    <div class="form-container">
+        <h1>Créer un Nouvel Habitant</h1>
+
+        <div class="form-content">
+            {{ include('habitant/_form.html.twig') }}
+        </div>
+
+        <div class="back-link">
+            <a href="{{ path('app_habitant_index') }}">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .form-container {
+        width: 70%;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h1 {
+        text-align: center;
+        color: #367C39;
+        margin-bottom: 20px;
+    }
+    .form-content {
+        margin-bottom: 20px;
+    }
+    .back-link {
+        text-align: center;
+    }
+    .back-link a {
+        display: inline-block;
+        padding: 10px 15px;
+        color: #367C39;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 4px;
+        border: 1px solid #367C39;
+        transition: all 0.3s ease;
+    }
+    .back-link a:hover {
+        background-color: #367C39;
+        color: white;
+    }
+</style>
+{% endblock %}

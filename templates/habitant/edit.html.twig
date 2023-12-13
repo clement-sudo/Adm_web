@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Habitant{% endblock %}
+
+{% block body %}
+    <h1>Modifier un habitant</h1>
+
+    {{ include('habitant/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_habitant_index') }}">Revenir à la liste</a>
+
+    {{ include('habitant/_delete_form.html.twig') }}
+{% endblock %}
