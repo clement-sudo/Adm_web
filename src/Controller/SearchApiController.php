@@ -18,7 +18,7 @@ class SearchApiController extends AbstractController
 
         $connection = $entityManager->getConnection();
 
-        $sql = "SELECT * FROM habitant WHERE nom LIKE :nom"; 
+        $sql = "SELECT * FROM habitant WHERE nom LIKE :nom"; //fonctionnel 
 
         $stmt = $connection->prepare($sql);
         $stmt->bindValue('nom', '%' . $nom . '%');
