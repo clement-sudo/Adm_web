@@ -20,29 +20,22 @@ class HabitantRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Habitant::class);
     }
+    public function getAverageAge(): ?float
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = 'SELECT AVG(YEAR(CURRENT_DATE()) - YEAR(date_naissance)) as moyenneAge FROM habitant';
+        
+        try {
+            $stmt = $conn->prepare($sql);
+            $result = $stmt->executeQuery();
 
-//    /**
-//     * @return Habitant[] Returns an array of Habitant objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('h')
-//            ->andWhere('h.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('h.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Habitant
-//    {
-//        return $this->createQueryBuilder('h')
-//            ->andWhere('h.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+            // Retourne la moyenne d'âge
+            $row = $result->fetchAssociative();
+            return $row ? (float) $row['moyenneAge'] : null;
+        } catch (\Doctrine\DBAL\Exception $e) {
+            // Gérer l'exception si nécessaire
+            return null;
+        }
+    }
 }
+
