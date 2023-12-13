@@ -16,7 +16,7 @@ class HabitantType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('date_naissance', DateType::class, [
-                'years' => range(date('Y') - 100, date('Y')),
+                'years' => range(date('Y') - 120, date('Y')),
                 'months' => range(1, 12),
                 'days' => range(1, 31),
                 'format' => 'dd MM yyyy',

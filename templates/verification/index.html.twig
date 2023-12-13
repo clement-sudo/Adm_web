@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vérification{% endblock %}
+
+{% block body %}
+    <h1>Habitants de Plus de 100 Ans</h1>
+
+    <ul>
+{% for habitant in habitantsPlusDeCentAns %}
+    <li>{{ habitant.nom }}, {{ habitant.prenom }} - Âge: {{ habitant.getAge() }}</li>
+{% else %}
+    <li>Aucun habitant de plus de 100 ans trouvé.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

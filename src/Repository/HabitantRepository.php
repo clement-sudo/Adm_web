@@ -37,5 +37,20 @@ class HabitantRepository extends ServiceEntityRepository
             return null;
         }
     }
+    public function findHabitantsPlusDeCentAns(): array
+    {
+        // Obtenir l'EntityManager
+        $em = $this->getEntityManager();
+
+        // Construire la requête DQL
+        $query = $em->createQuery(
+            'SELECT h
+             FROM App\Entity\Habitant h
+             WHERE h.date_naissance <= :dateLimite'
+        )->setParameter('dateLimite', new \DateTime('-100 years'));
+
+        // Exécuter la requête et retourner les résultats
+        return $query->getResult();
+    }
 }
 

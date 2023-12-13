@@ -27,6 +27,13 @@ class Habitant
 
     #[ORM\Column(length: 255)]
     private ?string $genre = null;
+    public function getAge(): int
+    {
+        $today = new \DateTime();
+        $age = $today->diff($this->date_naissance)->y;
+
+        return $age;
+    }
 
     public function getId(): ?int
     {
