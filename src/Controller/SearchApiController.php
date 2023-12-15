@@ -14,20 +14,18 @@ class SearchApiController extends AbstractController
     #[Route('/api/search', name: 'api_search')]
     public function search(Request $request, EntityManagerInterface $entityManager): Response
     {
+        
         $nom = $request->query->get('nom');
 
-        $connection = $entityManager->getConnection();
+        // Obtenez le repository de l'entité Habitant
+        $repository = $entityManager->getRepository(Habitant::class);
 
-        $sql = "SELECT * FROM habitant WHERE nom LIKE :nom"; //fonctionnel 
-
-        $stmt = $connection->prepare($sql);
-        $stmt->bindValue('nom', '%' . $nom . '%');
+        // Utilisez la méthode personnalisée pour la recherche
+        $habitants = $repository->findByNom($nom);
         
 
-        $results = $stmt->executeQuery();
-        
-
-
-        return $this->json($results);
+        var_dump($nom);
+        var_dump($this->json($habitants));
+        return $this->json($habitants);
     }
 }

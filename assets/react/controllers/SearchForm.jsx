@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function SearchForm() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -11,13 +12,17 @@ function SearchForm() {
     const handleSearch = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch(`/api/search?nom=${encodeURIComponent(searchTerm)}`);
-            if (!response.ok) {
+            //Envoi de la requête avec le terme de recherche
+            const response = await axios.get(`/api/search`, {
+                params: { nom: searchTerm }
+            });
+
+            if (response.status !== 200) {
                 throw new Error(`Erreur: ${response.statusText}`);
             }
-            const data = await response.json();
-            console.log(data)
-            setResults(data);
+
+            setResults(response.data);
+            
         } catch (error) {
             console.error("Erreur lors de la récupération des données", error);
         }
