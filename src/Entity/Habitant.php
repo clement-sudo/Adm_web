@@ -34,6 +34,14 @@ class Habitant
 
         return $age;
     }
+    public function findByNom($nom)
+    {
+    return $this->createQueryBuilder('h')
+        ->where('h.nom LIKE :nom')
+        ->setParameter('nom', '%' . $nom . '%')
+        ->getQuery()
+        ->getResult();
+    }
 
     public function getId(): ?int
     {

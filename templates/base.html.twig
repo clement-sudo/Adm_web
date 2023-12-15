@@ -52,6 +52,9 @@
             bottom: 0;
             width: 100%;
         }
+        {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
         
     </style>
 </head>
@@ -81,13 +84,9 @@
     <footer>
         <p>© 2023 Mairie de Saint Denis en Val</p>
     </footer>
+   {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %} 
     
 </body>
-{% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
 </html>

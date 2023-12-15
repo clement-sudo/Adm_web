@@ -7,7 +7,7 @@ function SearchForm() {
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value);
     };
-
+    
     const handleSearch = async (event) => {
         event.preventDefault();
         try {
