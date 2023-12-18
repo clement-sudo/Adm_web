@@ -8,24 +8,32 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse; 
+
 
 class SearchApiController extends AbstractController
 {
     #[Route('/api/search', name: 'api_search')]
-    public function search(Request $request, EntityManagerInterface $entityManager): Response
+    public function search(Request $request, EntityManagerInterface $entityManager): JsonResponse
     {
         
-        $nom = $request->query->get('nom');
+        $term = $request->query->get('term', '');
+        $type = $request->query->get('type', 'nom');
 
-        // Obtenez le repository de l'entité Habitant
         $repository = $entityManager->getRepository(Habitant::class);
-
-        // Utilisez la méthode personnalisée pour la recherche
-        $habitants = $repository->findByNom($nom);
-        
-
-        var_dump($nom);
-        var_dump($this->json($habitants));
+        switch ($type) {
+            case 'prenom':
+                $habitants = $repository->findBy(['prenom' => $term]);
+            break;
+            case 'genre':
+                $habitants = $repository->findBy(['genre' => $term]);
+                break;
+            case 'nom':
+            default:
+                $habitants = $repository->findBy(['nom' => $term]);
+                break;
+    }
         return $this->json($habitants);
+        
     }
 }
